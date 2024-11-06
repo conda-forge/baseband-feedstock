@@ -1,5 +1,5 @@
 {% set name = "baseband" %}
-{% set version = "2.0.0" %}
+{% set version = "3.0.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5a5e386f1fbdd34c00802aeed10541d9facb31228df182f04f32244d240063b3
+  sha256: d6b9745d63e4a8a4497311d758161ab974800556aa0348f662ec0595803af5e1
   patches:
     - baseband.patch
 
