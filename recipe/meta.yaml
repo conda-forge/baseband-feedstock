@@ -12,17 +12,17 @@ source:
     - baseband.patch
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
   noarch: python
 
 requirements:
   host:
-    - astropy >=2.0
+    - astropy-base >=2.0
     - pip
     - python
   run:
-    - astropy >=2.0
+    - astropy-base >=2.0
     - python
 
 test:
