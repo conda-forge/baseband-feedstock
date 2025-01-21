@@ -6,13 +6,13 @@ package:
   version: "{{ version }}"
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 5a5e386f1fbdd34c00802aeed10541d9facb31228df182f04f32244d240063b3
   patches:
     - baseband.patch
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
   noarch: python
 
@@ -20,12 +20,14 @@ requirements:
   host:
     - astropy >=2.0
     - pip
-    - python
+    - python {{ python_min }}
   run:
     - astropy >=2.0
-    - python
+    - python >={{ python_min }}
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - baseband
     - baseband.dada
