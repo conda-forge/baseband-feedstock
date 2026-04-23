@@ -1,19 +1,19 @@
 {% set name = "baseband" %}
-{% set version = "2.0.0" %}
+{% set version = "4.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5a5e386f1fbdd34c00802aeed10541d9facb31228df182f04f32244d240063b3
+  sha256: 467bd22e18f2a47554a1d69b8406acb07587bf18ee39180bd169309efd9ebe23
   patches:
     - baseband.patch
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
   noarch: python
 
 requirements:
